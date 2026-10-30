@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitron"
+version = "0.2.0"
+description = "Local archive replay planning and Git scheduling"
+requires-python = ">=3.11"
+dependencies = [
+  "tree-sitter>=0.23.2,<0.27",
+  "tree-sitter-javascript>=0.23.1,<0.26",
+  "tree-sitter-typescript>=0.23.2,<0.24",
+  "tree-sitter-language-pack>=1.22,<2",
+  "keyring>=25,<27",
+]
+
+[project.optional-dependencies]
+legacy-pdf = ["PyMuPDF>=1.24,<2"]
+
+[project.scripts]
+gitron = "gitron.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["gitron*"]
+
+[tool.setuptools.package-data]
+gitron = ["assets/*.svg"]
